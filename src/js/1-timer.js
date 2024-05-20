@@ -84,6 +84,6 @@ startButton.addEventListener('click', start);
 
 term.calendar.addEventListener('change', () => {
   const currentTime = Date.now();
-  userSelectedDate = new Date(term.calendar.selectedDates[0]).getTime();
+  
 });
 
