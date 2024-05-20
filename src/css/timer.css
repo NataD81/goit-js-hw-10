@@ -41,6 +41,6 @@ button[data-start] {
   cursor: pointer;
 }
 
-/* button[data-start]:hover {
+button[data-start]:hover {
   background-color: #0056b3;
-} */
+}
