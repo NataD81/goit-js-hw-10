@@ -5,8 +5,6 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const startButton = document.querySelector('button[data-start]');
 
-startButton.addEventListener('click', start);
-
 const term = {
   days: document.querySelector('[data-days]'),
   hours: document.querySelector('[data-hours]'),
@@ -17,7 +15,6 @@ const term = {
 
 let userSelectedDate = Date.now();
 startButton.disabled = true;
-let currentTime = Date.now();
 let timerStart = null;
 
 const options = {
@@ -27,6 +24,7 @@ const options = {
   minuteIncrement: 1,
 
   onClose(selectedDates) {
+    const currentTime = Date.now();
     if (selectedDates[0] < currentTime) {
       iziToast.error({
         message: 'Please choose a date in the future',
@@ -72,7 +70,8 @@ function start() {
 
     if (readout < 0) {
       clearInterval(timerStart);
-      startButton.disabled = true;
+      startButton.disabled = false;
+      term.calendar.disabled = false;
       return;
     }
     startButton.disabled = true;
@@ -81,4 +80,5 @@ function start() {
   }, 1000);
 }
 
+startButton.addEventListener('click', start);
 

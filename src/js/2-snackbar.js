@@ -3,7 +3,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form');
-const submitBtn = form.querySelector('button[type="submit"]');
+
 
 function createNotificationPromise(delay, state) {
   return new Promise((resolve, reject) => {
@@ -17,7 +17,7 @@ function createNotificationPromise(delay, state) {
   });
 }
 
-submitBtn.addEventListener('click', event => {
+form.addEventListener('submit', event => {
   event.preventDefault();
 
   const delayInput = form.querySelector('input[name="delay"]');
@@ -44,3 +44,4 @@ submitBtn.addEventListener('click', event => {
     }
   );
 });
+
